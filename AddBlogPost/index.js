@@ -1,13 +1,25 @@
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+  context.log("JavaScript HTTP trigger function processed a request.");
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+  context.bindings.outputDocument = JSON.stringify({
+    title: req.body.title,
+    blogType: req.body.blogType,
+    author: {
+      name: req.body.author.name,
+      img: req.body.author.img,
+      job: req.body.author.job,
+    },
+    address: req.body.address,
+    img: req.body.img,
+    summary: req.body.summary,
+    timestamp: req.body.timestamp,
+    estimate: req.body.estimate,
+  });
 
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
+  context.res = {
+    // status: 200, /* Defaults to 200 */
+    body: "Added a new blogpost! :",
+  };
+
+  context.done();
+};

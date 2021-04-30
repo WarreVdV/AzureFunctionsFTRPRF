@@ -54,4 +54,18 @@
     timestamp: new Date(2021, 5, 5),
     estimate: 3,
   },
+
+  {
+    title: "New Post",
+    blogType: "Text",
+    author: {
+      name: "Katelijne Duerinck",
+      img: "/Katelijne.jpg",
+      job: "Co-founder FTRPRF",
+    },
+    img: "/hipsterroom.jpg",
+    summary: "This will represent a new post",
+    timestamp: new Date(2021, 4, 22),
+    estimate: 6,
+  },
 ];

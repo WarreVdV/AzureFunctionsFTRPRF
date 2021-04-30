@@ -1,3 +1,13 @@
 {
-    "name": "Azure"
-}
+    "title": "New Post",
+    "blogType": "Text",
+    "author": {
+      "name": "Katelijne Duerinck",
+      "img": "/Katelijne.jpg",
+      "job": "Co-founder FTRPRF"
+    },
+    "img": "/hipsterroom.jpg",
+    "summary": "This will represent a new post",
+    "timestamp": "2021-03-18T23:00:00Z",
+    "estimate": 6
+  }
