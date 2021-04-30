@@ -3,14 +3,10 @@ module.exports = async function (context, req, Blog) {
   const wow = context.bindings.BlogIn
     ? context.bindings.BlogIn
     : "Nothing found";
-  const response = Blog
-    ? "Found Blog item, Description=" + Blog.name
-    : "Blog item not found";
-  const name = req.query.Id || (req.body && req.body.Id);
-  const par = req.query.PartitionKey || (req.body && req.body.PartitionKey);
+  const response = Blog ? Blog : "Blog item not found";
   context.res = {
     // status: 200, /* Defaults to 200 */
-    body: wow + " : " + name + " and " + par,
+    body: response,
     headers: {
       "Content-Type": "application/json",
     },

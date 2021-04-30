@@ -8,7 +8,8 @@
       "methods": [
         "get",
         "post"
-      ]
+      ],
+      "route":"blogposts/{id}"
     },
     {
       "type": "http",
@@ -22,8 +23,8 @@
       "databaseName": "functionTest",
       "collectionName": "my-function-container",
       "connectionStringSetting": "CosmosDbConnectionString",
-      "Id": "id",
-      "PartitionKey": "blogType"
+      "Id": "{id}",
+      "PartitionKey": "{id}"
     }
   ]
   ,

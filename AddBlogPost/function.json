@@ -6,9 +6,9 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get"
-      ],
-      "route":"blogposts"
+        "get",
+        "post"
+      ]
     },
     {
       "type": "http",
@@ -17,10 +17,11 @@
     },
     {
       "type": "cosmosDB",
-      "direction": "in",
-      "name": "Blogs",
+      "direction": "out",
+      "name": "outputDocument",
       "databaseName": "functionTest",
       "collectionName": "my-function-container",
+      "createIfNotExists": "false",
       "connectionStringSetting": "CosmosDbConnectionString"
     }
   ]
