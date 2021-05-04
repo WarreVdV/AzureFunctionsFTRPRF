@@ -14,10 +14,15 @@ const container = client
 
 module.exports = async function (context, req) {
   context.log("JavaScript HTTP trigger function processed a request.");
+  let response = "";
+  if (req.body && req.body.id) {
+    const item = container.item(req.body.id, req.body.id);
+    response = "Deleted BlogPost with id: " + req.body.id;
+    await item.delete();
+  } else {
+    response = "Nothing deleted: (MISSING ID IN REQUEST BODY)";
+  }
 
-  const item = container.item(req.body.id, req.body.id);
-  const response = "done";
-  await item.delete();
   context.res = {
     // status: 200, /* Defaults to 200 */
     body: response,
