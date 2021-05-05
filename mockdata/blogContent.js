@@ -67,6 +67,6 @@
     "img": "/hipsterroom.jpg",
     "summary": "This will represent a new post",
     "timestamp": "2021-06-04T22:00:00Z",
-    "estimate": 6,
-  },*/
+    "estimate": 6
+  }*/
 ];

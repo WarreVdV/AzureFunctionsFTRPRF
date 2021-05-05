@@ -17,6 +17,7 @@ module.exports = async function (context, req) {
       summary: req.body.summary,
       timestamp: req.body.timestamp,
       estimate: req.body.estimate,
+      content: req.body.content ? req.body.content : "",
     });
     response = "Added a new blogpost: " + req.body.title;
   } else {

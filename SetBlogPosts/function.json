@@ -16,8 +16,8 @@
       "type": "cosmosDB",
       "direction": "out",
       "name": "outputDocument",
-      "databaseName": "functionTest",
-      "collectionName": "my-function-container",
+      "databaseName": "websitefunctions",
+      "collectionName": "my-blogposts",
       "createIfNotExists": "false",
       "connectionStringSetting": "CosmosDbConnectionString"
     }

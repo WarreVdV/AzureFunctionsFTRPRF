@@ -20,8 +20,8 @@
       "type": "cosmosDB",
       "direction": "in",
       "name": "Blog",
-      "databaseName": "functionTest",
-      "collectionName": "my-function-container",
+      "databaseName": "websitefunctions",
+      "collectionName": "my-blogposts",
       "connectionStringSetting": "CosmosDbConnectionString",
       "Id": "{id}",
       "PartitionKey": "{id}"

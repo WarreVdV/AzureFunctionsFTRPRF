@@ -19,8 +19,8 @@
       "type": "cosmosDB",
       "direction": "in",
       "name": "Blogs",
-      "databaseName": "functionTest",
-      "collectionName": "my-function-container",
+      "databaseName": "websitefunctions",
+      "collectionName": "my-blogposts",
       "connectionStringSetting": "CosmosDbConnectionString"
     }
   ]
