@@ -12,19 +12,25 @@ const container = client.database("websitefunctions").container("my-blogposts");
 
 module.exports = async function (context, req) {
   context.log("JavaScript HTTP trigger function processed a request.");
-  let response = "";
   if (req.body && req.body.id) {
     const item = container.item(req.body.id, req.body.id);
-    response = "Deleted BlogPost with id: " + req.body.id;
+    const response = "Deleted BlogPost with id: " + req.body.id;
     await item.delete();
-  } else {
-    response = "Nothing deleted: (MISSING ID IN REQUEST BODY)";
-  }
 
-  context.res = {
-    // status: 200, /* Defaults to 200 */
-    body: response,
-  };
+    context.res = {
+      status: 200,
+      // status: 200, /* Defaults to 200 */
+      body: response,
+    };
+  } else {
+    const response = "Nothing deleted: (MISSING ID IN REQUEST BODY)";
+
+    context.res = {
+      status: 400,
+      // status: 200, /* Defaults to 200 */
+      body: response,
+    };
+  }
 
   context.done();
 };
