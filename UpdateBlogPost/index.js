@@ -9,31 +9,28 @@ const client = new CosmosClient({ endpoint, key });
 // All function invocations also reference the same database and container.
 // If on the contrary you need to change the container based on the Trigger, then create the instance inside the Function
 const container = client.database("websitefunctions").container("my-blogposts");
-
 module.exports = async function (context, req) {
   context.log("JavaScript HTTP trigger function processed a request.");
+
   try {
     if (req.body && req.body.id) {
       const item = container.item(req.body.id, req.body.id);
-      const response = "Deleted BlogPost with id: " + req.body.id;
-      await item.delete();
 
+      await item.replace(req.body);
       context.res = {
-        status: 200,
         // status: 200, /* Defaults to 200 */
-        body: response,
+        status: 200,
+        body: req.body,
       };
     } else {
-      const response = "Nothing deleted: MISSING BODY";
-
       context.res = {
-        status: 400,
         // status: 200, /* Defaults to 200 */
-        body: response,
+        status: 400,
+        body: "Something went wrong",
       };
     }
-  } catch (error) {
-    if (error.code && error.code === 404) {
+  } catch (err) {
+    if (err.code && err.code === 404) {
       context.res = {
         status: 404,
         body: "Nothing found",
